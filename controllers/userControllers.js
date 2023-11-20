@@ -70,9 +70,9 @@ const authUser = async(req, res) => {
 }
 
 const allUsers = async(req, res) => {
-    const keyword = req.query.search ? {
+    const keyword = req.query.search ? {     // req.query it likes req.params (not same idea)
         $or: [
-            { name: { $regex: req.query.search, $options: "i" } },
+            { name: { $regex: req.query.search, $options: "i" } },   // i means case insensitive
             { email: { $regex: req.query.search, $options: "i" } },
         ],
     }: {};
